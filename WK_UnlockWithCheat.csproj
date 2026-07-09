@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net46</TargetFramework>
+    <TargetFramework>net471</TargetFramework>
     <AssemblyName>WK_UnlockWithCheat</AssemblyName>
     <Product></Product>
     <Version>1.0.0</Version>
@@ -13,6 +13,11 @@
       https://nuget.samboy.dev/v3/index.json
     </RestoreAdditionalProjectSources>
     <RootNamespace>WK_UnlockWithCheat</RootNamespace>
+
+    <!-- BepInEx plugin metadata (consumed by BepInEx.PluginInfoProps -> MyPluginInfo) -->
+    <PluginGUID>huoyan1231.whiteknuckle.unlockwithcheat</PluginGUID>
+    <PluginName>WK_UnlockWithCheat</PluginName>
+    <PluginVersion>1.0.0</PluginVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,7 +26,25 @@
     <PackageReference Include="BepInEx.PluginInfoProps" Version="2.*" />
     <PackageReference Include="UnityEngine.Modules" Version="2022.3.62" IncludeAssets="compile" />
   </ItemGroup>
-  
+
+  <!-- Local references: provided by the game / BepInEx at runtime, so Private=false
+       (they are NOT bundled into the build output). -->
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>$(MSBuildThisFileDirectory)Lib\0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(MSBuildThisFileDirectory)Lib\Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <!-- Shared COM library providing LeaderboardManager / AchievementManager APIs. -->
+    <Reference Include="WK_huoyan1231COMLib">
+      <HintPath>$(MSBuildThisFileDirectory)Lib\WK_huoyan1231COMLib.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
   <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
   </ItemGroup>
