@@ -2,7 +2,7 @@
     "name": "WK_UnlockWithCheat",
     "version_number": "1.0.0",
     "website_url": "https://github.com/huoyan1231/WK_UnlockWithCheat",
-    "description": "Lets you keep unlocking new content (achievements / progression / XP) while cheat mode is active, and delegates to WK_huoyan1231COMLib to block leaderboard score uploads and Steam achievement uploads so you never pollute global boards or your real Steam profile.",
+    "description": "Lets you keep unlocking new content (progression) while cheat mode is active",
     "dependencies": [
         "BepInEx-BepInExPack-5.4.2100",
         "huoyan1231-WK_huoyan1231COMLib-1.1.0"
