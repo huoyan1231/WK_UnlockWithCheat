@@ -5,6 +5,6 @@
     "description": "Lets you keep unlocking new content (progression) while cheat mode is active",
     "dependencies": [
         "BepInEx-BepInExPack-5.4.2100",
-        "huoyan1231-WK_huoyan1231COMLib-1.1.0"
+        "huoyan1231-huoyan1231COMLib-1.1.0"
     ]
 }
